@@ -4,7 +4,7 @@ const fs = require("fs");
 
 async function getresult(seatno) {
   await axios
-    .get(`https://ums.cvmu.ac.in/GenerateResultHTML/2829/${seatno}.html`)
+    .get(url)
     .then((response) => {
       console.log(response);
       const dom = new JSDOM(response.data);
@@ -58,6 +58,6 @@ async function getresult(seatno) {
 
 // Loop through seat numbers
 for (let index = 0; index < 200; index++) {
-  const seatno = 2204001 + index;
+  const seatno = startinseatnumber + index;
   getresult(seatno);
 }
